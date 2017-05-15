@@ -16,7 +16,6 @@
 ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 */
 
-
 User Function GetNum(cAlias,nOrdem,cCampo)
 Local cNumero  := ''
 Local lOk      := .F.
@@ -36,13 +35,13 @@ DBSetOrdem(nOrdem)
 
 while !lOk
 
-	cNumero:= GetSX8Num('SC5','C5_NUM')
+	cNumero:= GetSX8Num(cAlias,cCampo)
 	
   //Verifica se a sequencia ja esta sendo usada
 	If !((cAlias)->(DBSeek(xFilial(cAlias)+cNumero)))
 		lOk:= .T.
     
-    //Nao confirmamos o processo aqui para que seja possivel utilizar o rollback no fonto que chamar a rotina
+    //Nao confirmamos o processo aqui para que seja possivel utilizar o rollback no fonte que chamar a rotina
 		
     Exit
 	EndIf
